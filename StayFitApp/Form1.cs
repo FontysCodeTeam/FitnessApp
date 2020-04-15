@@ -12,26 +12,11 @@ namespace StayFitApp
 {
     public partial class Form1 : Form
     {
+        public int time;
         public Form1()
         {
             InitializeComponent();
         }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRND_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnHistory_Click(object sender, EventArgs e)
         {
             this.Hide();
