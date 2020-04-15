@@ -16,5 +16,27 @@ namespace StayFitApp
         {
             InitializeComponent();
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRND_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var newForm = new HistoryView();
+            newForm.Show();
+        }
     }
 }

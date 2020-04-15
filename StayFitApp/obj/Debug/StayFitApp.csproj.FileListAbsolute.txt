@@ -1,0 +1,11 @@
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\bin\Debug\StayFitApp.exe.config
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\bin\Debug\StayFitApp.exe
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\bin\Debug\StayFitApp.pdb
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.csprojAssemblyReference.cache
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.Form1.resources
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.HistoryView.resources
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.Properties.Resources.resources
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.csproj.GenerateResource.cache
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.csproj.CoreCompileInputs.cache
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.exe
+D:\VisualStudio\Repos\FitnessApp\StayFitApp\obj\Debug\StayFitApp.pdb
