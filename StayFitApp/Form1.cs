@@ -38,5 +38,10 @@ namespace StayFitApp
             var newForm = new HistoryView();
             newForm.Show();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }
