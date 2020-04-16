@@ -19,6 +19,8 @@ namespace StayFitApp
         MessageBuilder messageBuilder;
         string PortName = "COM3";
         int BaudRate = 9600;
+        int startTime;
+        int endTime;
 
         Timer readMessageTimer = new Timer();
 
@@ -45,19 +47,6 @@ namespace StayFitApp
             }
         }
 
-        private void processReceivedMessage(string message)
-        {
-            // First trim whitespace characters like a trailing '\r'.
-            // This is needed because the Arduino Serial.println adds \r\n.
-            // '\n' will be removed because this is used as the message separation character,
-            // but the '\r' must also be removed, otherwise comparing the message strings will not work.
-            message = message.Trim();
-            // Add message to the listBox.
-            lbBerichten.Items.Add(message);
-            // TODO: Below fill in your message handling.
-
-        }
-
         private void btnHistory_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -73,7 +62,7 @@ namespace StayFitApp
         private void btStuur_Click(object sender, EventArgs e)
         {
             string message = $"#exercise:<{cbOefeningen.Text}>%";
-            MessageBox.Show(message);
+            //MessageBox.Show(message);
             serialMessenger.SendMessage(message);
         }
 
@@ -82,7 +71,7 @@ namespace StayFitApp
             try
             {
                 serialMessenger.Connect();
-                readMessageTimer.Enabled = true;
+                readMessageTimer.Enabled = true;               
                 Console.WriteLine("Connected to Arduino" + PortName);
                 btConnect.BackColor = Color.Green;
 
@@ -111,6 +100,33 @@ namespace StayFitApp
             {
                 MessageBox.Show(exception.Message);
             }
+        }
+
+        private void processReceivedMessage(string message)
+        {
+            message = message.Trim();
+            string[] commands = getParamValue(message);
+            if (commands[0] == "startTime")
+            {
+                startTime = Int32.Parse(commands[1]);
+                lbBerichten.Items.Add("Start tijd: " + DateTime.Now.ToString("HH:mm:ss"));
+            }
+            else if (commands[0] == "endTime")
+            {
+                endTime = Int32.Parse(commands[1]);
+                int totalTime = endTime - startTime;
+                totalTime = totalTime / 1000;
+                lbBerichten.Items.Add($"Eind tijd: " + DateTime.Now.ToString("HH:mm:ss"));
+                lbBerichten.Items.Add($"Totale tijd: {totalTime} seconden");
+            }
+            
+        }
+
+        private string[] getParamValue(string message)
+        {
+            string[] words = message.Split(':');
+
+            return words;
         }
     }
 }

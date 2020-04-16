@@ -116,7 +116,7 @@
             this.cbOefeningen.Items.AddRange(new object[] {
             "10 Sit-ups",
             "20 Burpees",
-            "5 Radslagen "});
+            "5 Radslagen"});
             this.cbOefeningen.Location = new System.Drawing.Point(15, 65);
             this.cbOefeningen.Name = "cbOefeningen";
             this.cbOefeningen.Size = new System.Drawing.Size(121, 21);
