@@ -10,23 +10,18 @@ using System.Windows.Forms;
 
 namespace StayFitApp
 {
-    public partial class Form1 : Form
+    public partial class HistoryView : Form
     {
-        public int time;
-        public Form1()
+        public HistoryView()
         {
             InitializeComponent();
         }
-        private void btnHistory_Click(object sender, EventArgs e)
+
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var newForm = new HistoryView();
+            var newForm = new Form1();
             newForm.Show();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(1);
         }
     }
 }
