@@ -15,10 +15,20 @@ namespace StayFitApp.Models
 
         public DataTable getHistory(int id)
         {
-            DataTable dt = db.ExecuteStringQuery($"SELECT * FROM history WHERE userID = '{id}';");
+            DataTable dt = db.ExecuteStringQuery($"SELECT user.name, exercise.description, history.date, history.duration FROM((history " +
+                $"INNER JOIN exercise ON history.exerciseID = exercise.ID) " +
+                $"INNER JOIN user ON history.userID = user.ID) " +
+                $"WHERE user.ID = '{id}'");
 
             return dt;
         } 
+
+        public void updateHistory(int userid, int exerciseid, int totalTime)
+        {
+            db.ExecuteNonQuery($"INSERT INTO `fhictDB`.`history` (`userID`, `exerciseID`, `date`, `duration`) " +
+                $"VALUES('{userid}', '{exerciseid}', '{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}', '{totalTime}'); ");
+        }
+
             
     }
 }

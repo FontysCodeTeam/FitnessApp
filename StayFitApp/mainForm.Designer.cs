@@ -36,6 +36,7 @@
             this.btDisconnect = new System.Windows.Forms.Button();
             this.cbOefeningen = new System.Windows.Forms.ComboBox();
             this.lbWelcome = new System.Windows.Forms.Label();
+            this.btRandom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnHistory
@@ -51,9 +52,9 @@
             // 
             // btStuur
             // 
-            this.btStuur.Location = new System.Drawing.Point(190, 65);
+            this.btStuur.Location = new System.Drawing.Point(144, 61);
             this.btStuur.Name = "btStuur";
-            this.btStuur.Size = new System.Drawing.Size(75, 23);
+            this.btStuur.Size = new System.Drawing.Size(121, 35);
             this.btStuur.TabIndex = 6;
             this.btStuur.Text = "Stuur bericht";
             this.btStuur.UseVisualStyleBackColor = true;
@@ -106,7 +107,7 @@
             "10 Sit-ups",
             "20 Burpees",
             "5 Radslagen"});
-            this.cbOefeningen.Location = new System.Drawing.Point(15, 65);
+            this.cbOefeningen.Location = new System.Drawing.Point(144, 112);
             this.cbOefeningen.Name = "cbOefeningen";
             this.cbOefeningen.Size = new System.Drawing.Size(121, 21);
             this.cbOefeningen.TabIndex = 11;
@@ -121,11 +122,22 @@
             this.lbWelcome.TabIndex = 12;
             this.lbWelcome.Text = "label2";
             // 
+            // btRandom
+            // 
+            this.btRandom.Location = new System.Drawing.Point(13, 61);
+            this.btRandom.Name = "btRandom";
+            this.btRandom.Size = new System.Drawing.Size(109, 35);
+            this.btRandom.TabIndex = 13;
+            this.btRandom.Text = "Stuur random";
+            this.btRandom.UseVisualStyleBackColor = true;
+            this.btRandom.Click += new System.EventHandler(this.btRandom_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btRandom);
             this.Controls.Add(this.lbWelcome);
             this.Controls.Add(this.cbOefeningen);
             this.Controls.Add(this.btDisconnect);
@@ -154,6 +166,7 @@
         private System.Windows.Forms.Button btDisconnect;
         private System.Windows.Forms.ComboBox cbOefeningen;
         private System.Windows.Forms.Label lbWelcome;
+        private System.Windows.Forms.Button btRandom;
     }
 }
 

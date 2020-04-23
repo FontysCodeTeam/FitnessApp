@@ -16,9 +16,12 @@ namespace StayFitApp
 
     public partial class mainForm : Form
     {
+        List<string> oefeningen = new List<string>();
+        Random rnd;
+        int random;
         SerialMessenger serialMessenger;
         MessageBuilder messageBuilder;
-        Queries query = new Queries();
+        Queries query;
         DataTable dtuser;
         User user;
         string PortName = "COM3";
@@ -34,7 +37,19 @@ namespace StayFitApp
         {
             InitializeComponent();
 
+            query = new Queries();
+
+            rnd = new Random();
+
+            oefeningen.Add("10 sit-ups");
+            oefeningen.Add("10 push-ups");
+            oefeningen.Add("10 burpees");
+            oefeningen.Add("20 sit-ups");
+            oefeningen.Add("20 push-ups");
+            oefeningen.Add("20 burpees");
+
             this.dtuser = dtuser;
+
             fillUser(dtuser);
 
             messageBuilder = new MessageBuilder();
@@ -121,10 +136,12 @@ namespace StayFitApp
             else if (commands[0] == "endTime")
             {
                 endTime = Int32.Parse(commands[1]);
-                int totalTime = endTime - startTime;
-                totalTime = totalTime / 1000;
+                int totalTimeInMS = endTime - startTime;
+                int totalTimeInSeconds = totalTimeInMS / 1000;
                 lbBerichten.Items.Add($"Eind tijd: " + DateTime.Now.ToString("HH:mm:ss"));
-                lbBerichten.Items.Add($"Totale tijd: {totalTime} seconden");
+                lbBerichten.Items.Add($"Totale tijd: {totalTimeInSeconds} seconden");
+
+                query.updateHistory(user.ID, random + 1, totalTimeInMS);
             }
             
         }
@@ -154,6 +171,13 @@ namespace StayFitApp
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btRandom_Click(object sender, EventArgs e)
+        {
+            random = rnd.Next(0, 6);
+            lbBerichten.Items.Add(oefeningen[random]);
+            serialMessenger.SendMessage(oefeningen[random]);
         }
     }
 }
