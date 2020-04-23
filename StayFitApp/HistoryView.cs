@@ -19,9 +19,14 @@ namespace StayFitApp
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var newForm = new Form1();
-            newForm.Show();
+            //this.Hide();
+            //var newForm = new mainForm();
+            //newForm.Show();
+        }
+
+        private void HistoryView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

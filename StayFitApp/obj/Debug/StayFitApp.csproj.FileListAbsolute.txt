@@ -21,7 +21,6 @@ C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\bin\Debug\Google.Protobuf.xm
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\bin\Debug\MySql.Data.xml
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\bin\Debug\Renci.SshNet.xml
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.csprojAssemblyReference.cache
-C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.Form1.resources
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.HistoryView.resources
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.Properties.Resources.resources
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.csproj.GenerateResource.cache
@@ -29,3 +28,6 @@ C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.csproj.
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.csproj.CopyComplete
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.exe
 C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.pdb
+C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.mainForm.resources
+C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.registerForm.resources
+C:\Users\Ron\Documents\GitHub\FitnessApp\StayFitApp\obj\Debug\StayFitApp.loginForm.resources
