@@ -8,5 +8,8 @@ namespace StayFitApp.Models
 {
     class History
     {
+
+        //hier de data op halen vannuit de database voor de history
+
     }
 }
