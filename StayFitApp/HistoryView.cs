@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StayFitApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +13,31 @@ namespace StayFitApp
 {
     public partial class HistoryView : Form
     {
-        public HistoryView()
+        DataTable dtuser;
+        User user;
+        public HistoryView(DataTable dtuser, User user)
         {
             InitializeComponent();
+
+            this.dtuser = dtuser;
+            this.user = user;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //var newForm = new mainForm();
-            //newForm.Show();
+            mainForm mainform = new mainForm(dtuser);
+            mainform.Show();
+            this.Hide();
         }
 
         private void HistoryView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void HistoryView_Load(object sender, EventArgs e)
+        {
+            dgvHistory.DataSource = user.history;
         }
     }
 }

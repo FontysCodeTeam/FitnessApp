@@ -93,6 +93,7 @@
     <Compile Include="Classes\SerialMessenger.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Database\Database.cs" />
+    <Compile Include="Models\Queries.cs" />
     <Compile Include="registerForm.cs">
       <SubType>Form</SubType>
     </Compile>

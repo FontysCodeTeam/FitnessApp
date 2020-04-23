@@ -1,4 +1,5 @@
 ﻿using StayFitApp.Classes;
+using StayFitApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace StayFitApp
     {
         SerialMessenger serialMessenger;
         MessageBuilder messageBuilder;
+        Queries query = new Queries();
+        DataTable dtuser;
         User user;
         string PortName = "COM3";
         int BaudRate = 9600;
@@ -31,14 +34,8 @@ namespace StayFitApp
         {
             InitializeComponent();
 
-            foreach (DataRow row in dtuser.Rows)
-            {
-                string name = row["name"].ToString();
-                string username = row["username"].ToString();
-                user = new User(username, name);
-            }
-
-            lbWelcome.Text = $"Welcome {user.name}";
+            this.dtuser = dtuser;
+            fillUser(dtuser);
 
             messageBuilder = new MessageBuilder();
             serialMessenger = new SerialMessenger(PortName, BaudRate, messageBuilder);
@@ -60,7 +57,7 @@ namespace StayFitApp
         private void btnHistory_Click(object sender, EventArgs e)
         {
             this.Hide();
-            HistoryView historyview = new HistoryView();
+            HistoryView historyview = new HistoryView(dtuser, user);
             historyview.Show();
         }
 
@@ -139,6 +136,21 @@ namespace StayFitApp
             return words;
         }
 
+        void fillUser(DataTable dtuser)
+        {
+            foreach (DataRow row in dtuser.Rows)
+            {
+                int id = Int32.Parse(row["ID"].ToString());
+                string name = row["name"].ToString();
+                string username = row["username"].ToString();
+
+                DataTable history = query.getHistory(id);
+
+                user = new User(username, name, id, history);
+            }
+
+            lbWelcome.Text = $"Welcome {user.name}";
+        }
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

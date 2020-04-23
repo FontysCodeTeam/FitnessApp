@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StayFitApp.Database
+namespace StayFitApp
 {
-    class Database
+    public class Database
     {
         public MySqlConnection Con;
         public Database()

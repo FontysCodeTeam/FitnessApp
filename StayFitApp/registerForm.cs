@@ -1,5 +1,4 @@
-﻿using StayFitApp.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +12,7 @@ namespace StayFitApp
 {
     public partial class registerForm : Form
     {
-        Database.Database db = new Database.Database();
+        Database db = new Database();
         public registerForm()
         {
             InitializeComponent();
