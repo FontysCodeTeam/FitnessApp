@@ -60,6 +60,7 @@ namespace StayFitApp
 
         }
 
+        //Check if there is message every 10ms
         private void ReadMessageTimer_Tick(object sender, EventArgs e)
         {
             string message = serialMessenger.ReadMessages();
@@ -69,6 +70,7 @@ namespace StayFitApp
             }
         }
 
+        //Opens another window where you can see the history of your exercises
         private void btnHistory_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -76,18 +78,14 @@ namespace StayFitApp
             historyview.Show();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(1);
-        }
-
+        //Sends message select in the combobox to the Arduino
         private void btStuur_Click(object sender, EventArgs e)
         {
             string message = $"#exercise:<{cbOefeningen.Text}>%";
-            //MessageBox.Show(message);
             serialMessenger.SendMessage(message);
         }
 
+        //Connects to the Arduino
         private void btConnect_Click(object sender, EventArgs e)
         {
             try
@@ -104,6 +102,7 @@ namespace StayFitApp
             }
         }
 
+        //Disconnect from Arduino
         private void btDisconnect_Click(object sender, EventArgs e)
         {
             disconnect();
@@ -111,6 +110,7 @@ namespace StayFitApp
             btConnect.BackColor = Color.Red;
         }
 
+        //Cloes de messenger  properly
         private void disconnect()
         {
             try
@@ -124,6 +124,7 @@ namespace StayFitApp
             }
         }
 
+        //The recieved message is processed and put into a listbox and finally updated to the database
         private void processReceivedMessage(string message)
         {
             message = message.Trim();
@@ -146,6 +147,8 @@ namespace StayFitApp
             
         }
 
+
+        // Splits the message if there is a ':' in it for a value
         private string[] getParamValue(string message)
         {
             string[] words = message.Split(':');
@@ -153,6 +156,7 @@ namespace StayFitApp
             return words;
         }
 
+        //Fills the user class with the data of the logged in user
         void fillUser(DataTable dtuser)
         {
             foreach (DataRow row in dtuser.Rows)
@@ -168,16 +172,19 @@ namespace StayFitApp
 
             lbWelcome.Text = $"Welcome {user.name}";
         }
-        private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
+        
+        //Sends random exercise to the Arduino. This will go on a timer but this is easier for development
         private void btRandom_Click(object sender, EventArgs e)
         {
             random = rnd.Next(0, 6);
             lbBerichten.Items.Add(oefeningen[random]);
             serialMessenger.SendMessage(oefeningen[random]);
+        }
+
+        //Closes the Application completely, also the debugger for easier development
+        private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

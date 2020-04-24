@@ -20,6 +20,7 @@ namespace StayFitApp
 
         private void btLogin_Click(object sender, EventArgs e)
         {
+            //Check if there is a user with the username and the same password as provided, if so send the user properties to the main form
             if (db.ExecuteScalar($"SELECT COUNT(*) FROM user WHERE username = '{tbUsername.Text}' AND password = '{tbPassword.Text}';") == "1")
             {
                 DataTable dt = db.ExecuteStringQuery($"SELECT * FROM user WHERE username = '{tbUsername.Text}';");

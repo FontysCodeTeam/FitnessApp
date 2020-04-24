@@ -20,14 +20,17 @@ namespace StayFitApp
 
         private void btRegister_Click(object sender, EventArgs e)
         {
+            //Check if the passwords are the same
             if (tbPassword.Text == tbRetype.Text)
             {
+                //Check if the username already exists
                 if (db.ExecuteScalar($"SELECT COUNT(*) FROM user WHERE username = '{tbUsername.Text}';") == "1")
                 {
                     MessageBox.Show("Username already exists");
                 }
                 else
                 {
+                    //Create user with the provide information
                     if (db.ExecuteNonQuery($"INSERT INTO `fhictDB`.`user` (`username`, `password`, `name`) VALUES ('{tbUsername.Text}', '{tbPassword.Text} ', '{tbName.Text }');") == 1)
                     {
                         MessageBox.Show("User created");
@@ -40,8 +43,7 @@ namespace StayFitApp
                         MessageBox.Show("Something went wrong in creating your account");
                     }
                 }
-                
-                
+                               
             }
             else
             {

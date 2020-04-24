@@ -13,6 +13,7 @@ namespace StayFitApp.Models
     {
         Database db = new Database();
 
+        //Get history of exercises from the user
         public DataTable getHistory(int id)
         {
             DataTable dt = db.ExecuteStringQuery($"SELECT user.name, exercise.description, history.date, history.duration FROM((history " +
@@ -23,6 +24,7 @@ namespace StayFitApp.Models
             return dt;
         } 
 
+        //Updates the history of the user
         public void updateHistory(int userid, int exerciseid, int totalTime)
         {
             db.ExecuteNonQuery($"INSERT INTO `fhictDB`.`history` (`userID`, `exerciseID`, `date`, `duration`) " +
